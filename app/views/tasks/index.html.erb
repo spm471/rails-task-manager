@@ -1,0 +1,12 @@
+<h1>Tasks to be displayed</h1>
+<% @tasks.each do |task| %>
+<% if task.completed == true %>
+<p> [X] <%= link_to task.title, show_path(task) %></p>
+<% else %>
+<p> [ ] <%= link_to task.title, show_path(task) %></p>
+<% end %>
+<%= link_to "Edit task?", edit_path(task) %>
+<%= link_to "Delete task?", delete_path(task), method: :delete %>
+<% end %>
+
+<div><%= link_to "Add a new Task?", new_path %></div>
